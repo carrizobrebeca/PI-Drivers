@@ -12,29 +12,35 @@ function App() {
     <>
       <div>
         <BrowserRouter>
-         
           <Routes>
-            <Route path="/" element={<LandingPage/>} />
+            <Route path="/" element={<LandingPage />} />
             <Route
               path="/home"
               element={
                 <>
                   <NavBar />
-                  <HomePage/>
+                  <HomePage />
                 </>
               }
             />
-            <Route path="/details" element={
-             <>
-             <NavBar />
-            <Details />
-           </>} />
-            <Route path="/form" element={
-               <>
-               <NavBar />
-               <Form />
-             </>
-            } />
+            <Route
+              path="/details"
+              element={
+                <>
+                  <NavBar />
+                  <Details />
+                </>
+              }
+            />
+            <Route
+              path="/form"
+              element={
+                <>
+                  <NavBar />
+                  <Form />
+                </>
+              }
+            />
           </Routes>
         </BrowserRouter>
       </div>
