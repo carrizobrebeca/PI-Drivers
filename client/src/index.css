@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -66,4 +66,25 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+body {
+  margin: 0;
+  min-width: 900px;
+  min-height: 800px;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  
+  background: url('https://www.hdcarwallpapers.com/download/mercedes_amg_f1_w12_e_performance_4k_8-2560x1440.jpg');
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.8; /* Ajusta la opacidad según desees */
+  z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
 }

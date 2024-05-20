@@ -1,0 +1,29 @@
+.cont {
+    display: flex;
+    justify-content: center;
+    min-width: 900px;
+    min-height: 800px;
+    margin: -10px;
+    text-align: center;
+    background-image: URL('https://www.hdcarwallpapers.com/download/mercedes_amg_f1_w12_e_performance_4k_8-2560x1440.jpg');
+    background-size: cover;
+  }
+
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+  .btn{
+    border-radius: 30px 30px 30px 30px;
+    box-shadow: rgba(219, 224, 224, 0.527) 2px 2px 15px 15px;
+    font-size: 40px;
+  }
+  .wc{
+    color: aliceblue;
+    font-size: 50px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }

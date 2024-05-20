@@ -4,17 +4,17 @@ const Form = () => {
   return (
     <div className={style.container}>
       <form>
-        <div className={style.imputContainer}>
+        <div className={style.inputContainer}>
           <label htmlFor="">ID |</label>
           <input type="text" name="id" placeholder="id" />
         </div>
 
-        <div className={style.imputContainer}>
+        <div className={style.inputContainer}>
           <label htmlFor="">NAME |</label>
           <input type="text" name="name" placeholder="name" />
         </div>
 
-        <div className={style.imputContainer}>
+        <div className={style.inputContainer}>
           <label htmlFor="">SURENAME |</label>
           <input
             type="text"
@@ -23,8 +23,8 @@ const Form = () => {
             />
         </div>
 
-        <div className={style.imputContainer}>
-          <label htmlFor="">NATIONALITY | </label>
+        <div className={style.inputContainer}>
+          <label htmlFor="">NATIONALITY |</label>
           <input
             type="text"
             name="nationality"
@@ -32,8 +32,8 @@ const Form = () => {
             />
         </div>
 
-        <div className={style.imputContainer}>
-          <label htmlFor="">IMAGE | </label>
+        <div className={style.inputContainer}>
+          <label htmlFor="">IMAGE |</label>
           <input
             type="text"
             name="image"
@@ -41,8 +41,8 @@ const Form = () => {
             />
         </div>
 
-        <div className={style.imputContainer}>
-          <label htmlFor="">DESCRIPTION | </label>
+        <div className={style.inputContainer}>
+          <label htmlFor="">DESCRIPTION |</label>
           <input
             type="text"
             name="desccription"
@@ -50,8 +50,8 @@ const Form = () => {
             />
         </div>
 
-        <div className={style.imputContainer}>
-          <label htmlFor="">DATE OF BORN | </label>
+        <div className={style.inputContainer}>
+          <label htmlFor="">DATE OF BORN |</label>
           <input
             type="text"
             name="dateOfBorn"
@@ -59,8 +59,8 @@ const Form = () => {
             />
         </div>
 
-        <div className={style.imputContainer}>
-          <label htmlFor="">TEAM | </label>
+        <div className={style.inputContainer}>
+          <label htmlFor="">TEAM |</label>
           <input
             type="text"
             name="team"
@@ -68,8 +68,8 @@ const Form = () => {
             />
         </div>
 
-        <div>
-          <button type="submit">Submit</button>
+        <div className={style.buttonContainer}>
+          <button className={style.btton} type="submit">Submit</button>
         </div>
       </form>
     </div>
