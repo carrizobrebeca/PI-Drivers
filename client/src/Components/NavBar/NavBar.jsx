@@ -9,7 +9,7 @@ const NavBar = () => {
     <div className={style.container}>
       <button onClick={() => navigate("/home")}>HOME</button>
       <button onClick={() => navigate("/form")}>FORM</button>
-      <SearchBar />
+      <SearchBar/>
     </div>
   );
 };

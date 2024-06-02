@@ -10,12 +10,12 @@ const Form = () => {
         </div>
 
         <div className={style.inputContainer}>
-          <label htmlFor="">NAME |</label>
-          <input type="text" name="name" placeholder="name" />
+          <label htmlFor="">FORENAME |</label>
+          <input type="text" name="forename" placeholder="forename" />
         </div>
 
         <div className={style.inputContainer}>
-          <label htmlFor="">SURENAME |</label>
+          <label htmlFor="">SURNAME |</label>
           <input
             type="text"
             name="surname"
@@ -55,7 +55,7 @@ const Form = () => {
           <input
             type="text"
             name="dateOfBorn"
-            placeholder="11-11-1111"
+            placeholder="1999-12-31"
             />
         </div>
 
