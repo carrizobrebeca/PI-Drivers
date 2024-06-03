@@ -40,24 +40,3 @@ exports.getDriver = async (req, res) => {
     }
 }; 
 
-// const axios = require("axios");
-
-// exports.getDriver = (req, res) => {
-//     const {forename} = req.params;
-//     axios
-//     .get(
-//         `http://localhost:5000/drivers?name.forename=${forename}`
-//     )
-//     .then((resp) => {
-//         let {id, forename, surname, nationality, image, description, dob, team} = resp.data;
-
-//         const driver = {id, forename, surname, nationality, image, description, dob, team};
-//         return driver. name
-//         ? res.json(driver)
-//         : res.status(400).send("DRIVER NOT FOUND");
-//     })
-//     .catch((reason) => {
-//         return res.status(500).send(reason.message);
-//     })
-// };
-

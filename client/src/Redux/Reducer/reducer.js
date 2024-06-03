@@ -1,24 +1,81 @@
-//importar acions-types
+import {
+  GET_DRIVERS,
+  // GET_DRIVER,
+  // GET_DRIVER_TEAM,
+  PAGINATE,
+  ORDER_DRIVERS,
+  ORDER_BORN,
+  // FILTER_TEAM,
+} from "../Actions/actions-types";
 
-import axios from "axios";
-import { GET_DRIVERS } from "../Actions/actions-types";
-// import { ORDER_DRIVERS, SEARCH_DRIVER } from "../Actions/actions-types";
-
-//definir estado inicial del estado global
 let initialState = {
   allDrivers: [],
-  // allTeams: [],
-  // filterDriver: false,
-  // currentPage: 0,
+  allTeams: [],
+  currentPage: 0,
+  paginatedDrivers: [],
 };
 
 function rootReducer(state = initialState, action) {
+  const ITEMS_PER_PAGE = 5;
+
   switch (action.type) {
     case GET_DRIVERS:
-      return { ...state, allDrivers: action.payload };
+      return {
+        ...state,
+        allDrivers: action.payload,
+        paginatedDrivers: action.payload.slice(0, ITEMS_PER_PAGE),
+      };
+    
+    case PAGINATE:
+      const { page } = action.payload;
+      const startIndex = page * ITEMS_PER_PAGE;
+      const endIndex = startIndex + ITEMS_PER_PAGE;
+      return {
+        ...state,
+        currentPage: page,
+        paginatedDrivers: state.allDrivers.slice(startIndex, endIndex),
+      };
 
+    case ORDER_DRIVERS:
+      let orderedDrivers;
+      if (action.payload === "A") {
+        // Orden ascendente por nombre
+        orderedDrivers = state.allDrivers.slice().sort((a, b) => {
+          return a.name.forename.localeCompare(b.name.forename);
+        });
+      } else {
+        // Orden descendente por nombre
+        orderedDrivers = state.allDrivers.slice().sort((a, b) => {
+          return b.name.forename.localeCompare(a.name.forename);
+        });
+      }
+      return {
+        ...state,
+
+        allDrivers: orderedDrivers,
+      };
+
+    case ORDER_BORN:
+      let orderedDriversByBorn;
+      if (action.payload === "ASC") {
+        // Orden ascendente por fecha de nacimiento
+        orderedDriversByBorn = state.allDrivers.slice().sort((a, b) => {
+          return new Date(a.dob) - new Date(b.dob);
+        });
+      } else {
+        // Orden descendente por fecha de nacimiento
+        orderedDriversByBorn = state.allDrivers.slice().sort((a, b) => {
+          return new Date(b.dob) - new Date(a.dob);
+        });
+      }
+      return {
+        ...state,
+        allDrivers: orderedDriversByBorn,
+      };
+
+    
     default:
-      return { ...state };
+      return state;
   }
 }
 
