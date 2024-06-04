@@ -7,7 +7,7 @@ dispatch(
 )
 */
 import axios from 'axios';
-import { GET_DRIVERS, PAGINATE, ORDER_DRIVERS, ORDER_BORN } from './actions-types';
+import { GET_DRIVERS, GET_DRIVER_ID, PAGINATE, ORDER_DRIVERS, ORDER_BORN } from './actions-types';
 
 const getDrivers=()=>{
 
@@ -24,7 +24,22 @@ const getDrivers=()=>{
         }
     }
 }
-
+const getDriverById= (id) => {
+    return async (dispatch) => {
+      try {
+        const response = await axios.get(`http://localhost:5000/drivers/${id}`);
+      
+        const data = Array.isArray(response.data) ? response.data[0] : response.data; // Asegúrate de obtener un objeto
+        dispatch({
+          type: GET_DRIVER_ID,
+          payload: data,
+        });
+      } catch (error) {
+        console.error("Error fetching detail:", error);
+      }
+    };
+  };
+    
 const paginate = (page) => ({
     type: PAGINATE,
     payload: { page }
@@ -47,5 +62,5 @@ const paginate = (page) => ({
   
  
   
-export {getDrivers, paginate, orderDrivers, orderBorn}
+export {getDrivers, getDriverById, paginate, orderDrivers, orderBorn}
 

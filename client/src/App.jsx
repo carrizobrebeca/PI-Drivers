@@ -24,7 +24,7 @@ function App() {
               }
             />
             <Route
-              path="/details"
+              path="/detail/:id"
               element={
                 <>
                   <NavBar />

@@ -2,7 +2,9 @@ import {
   GET_DRIVERS,
   // GET_DRIVER,
   // GET_DRIVER_TEAM,
+  GET_DRIVER_ID,
   PAGINATE,
+  
   ORDER_DRIVERS,
   ORDER_BORN,
   // FILTER_TEAM,
@@ -11,6 +13,7 @@ import {
 let initialState = {
   allDrivers: [],
   allTeams: [],
+  driverId: {},
   currentPage: 0,
   paginatedDrivers: [],
 };
@@ -23,9 +26,14 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         allDrivers: action.payload,
+
         paginatedDrivers: action.payload.slice(0, ITEMS_PER_PAGE),
       };
-    
+    case GET_DRIVER_ID:
+      return {
+        ...state,
+        driverId: action.payload,
+      };
     case PAGINATE:
       const { page } = action.payload;
       const startIndex = page * ITEMS_PER_PAGE;
@@ -73,7 +81,6 @@ function rootReducer(state = initialState, action) {
         allDrivers: orderedDriversByBorn,
       };
 
-    
     default:
       return state;
   }

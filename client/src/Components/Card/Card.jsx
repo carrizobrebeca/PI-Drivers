@@ -3,8 +3,11 @@ import style from "./card.module.css";
 import { Link } from 'react-router-dom';
 
 const Card = ({ driver }) => {
-  const { id, name, image, team } = driver;
+  const { id, name, image, teams } = driver;
 
+  if(!driver.image.url){
+    return image.url= 'https://img.freepik.com/fotos-premium/retrato-piloto-f1-casco-piloto-formula-pie-pista-carreras-despues-competencia_983424-6256.jpg';
+  }
   return (
     <div className={style.container}>
       <div className={style.imgContainer}>
@@ -18,13 +21,7 @@ const Card = ({ driver }) => {
 
       <div className={style.description}>
         <h2>
-          {team ? (
-            team.map((teamName, index) => (
-              <span key={index}>{teamName}</span>
-            ))
-          ) : (
-            <span>No team</span>
-          )}
+          {teams}
         </h2>
       </div>
     </div>
