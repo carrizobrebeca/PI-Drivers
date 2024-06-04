@@ -7,7 +7,8 @@ dispatch(
 )
 */
 import axios from 'axios';
-import { GET_DRIVERS, GET_DRIVER_ID, PAGINATE, ORDER_DRIVERS, ORDER_BORN } from './actions-types';
+import { GET_DRIVERS, GET_DRIVER_ID, CLEAR, PAGINATE, ORDER_DRIVERS, ORDER_BORN } from './actions-types';
+
 
 const getDrivers=()=>{
 
@@ -38,6 +39,11 @@ const getDriverById= (id) => {
         console.error("Error fetching detail:", error);
       }
     };
+  }; 
+  const clear = () => {
+    return {
+      type: CLEAR,
+    };
   };
     
 const paginate = (page) => ({
@@ -62,5 +68,5 @@ const paginate = (page) => ({
   
  
   
-export {getDrivers, getDriverById, paginate, orderDrivers, orderBorn}
+export {getDrivers, getDriverById, clear, paginate, orderDrivers, orderBorn}
 

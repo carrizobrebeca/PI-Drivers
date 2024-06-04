@@ -3,6 +3,7 @@ import {
   // GET_DRIVER,
   // GET_DRIVER_TEAM,
   GET_DRIVER_ID,
+  CLEAR,
   PAGINATE,
   
   ORDER_DRIVERS,
@@ -34,6 +35,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         driverId: action.payload,
       };
+      case CLEAR:
+        return {
+          ...state,
+          driverId: {},
+        };
     case PAGINATE:
       const { page } = action.payload;
       const startIndex = page * ITEMS_PER_PAGE;

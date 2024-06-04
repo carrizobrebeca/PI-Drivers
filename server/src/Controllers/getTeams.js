@@ -23,7 +23,7 @@ exports.getTeams = async (req, res) => {
             const promises = teams.map(name => Team.findOrCreate({
                 where: { name },
                 defaults: {
-                    image: teamsLogos[name],
+                    image: 'https://img.freepik.com/fotos-premium/retrato-piloto-f1-casco-piloto-formula-pie-pista-carreras-despues-competencia_983424-6256.jpg',
                 }
             }));
 

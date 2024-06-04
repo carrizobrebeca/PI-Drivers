@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { Driver, Team } = require('../db');
 
-const getDriverId = async (id, origin) => {
+exports.getDriverById = async (id, origin) => {
     let driver;
   
     if (origin === "api") {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { getDriverById, clear } from "../../Redux/Actions/actions";
+import { getDriverById, clear} from "../../Redux/Actions/actions";
 import style from "./detail.module.css";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -17,7 +17,7 @@ const Detail = () => {
   }, [dispatch, id]);
 
   const driverId = useSelector((state) => state.driverId);
-  console.log(driverId);
+  // console.log(driverId);
   // const { forename, surname } = driverId.name;
   // const { url } = driverId.image;
   
@@ -25,11 +25,11 @@ const Detail = () => {
     <div className={style.pageCenter}>
       <div className={style.container}>
         <div className={style.imgContainer}>
-          <img src={driverId.image} alt={`${driverId.forename} ${driverId.surname}`} />
+          <img src={driverId.image.url} alt={`${driverId.name.forename} ${driverId.name.surname}`} />
 
           <h2 className={style.name}>
             <h2 className={style.name}>
-              Name | {driverId.forename}, {driverId.surname}
+              Name | {driverId.name.forename}, {driverId.name.surname}
             </h2>
           </h2>
         </div>

@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { getDriver, getTeams } = require("../Controllers/getDriver");
-const { getDriverById } = require("../../../client/src/Redux/Actions/actions");
+const { getDriverById } = require("../Controllers/getDriverById");
 
 const router = Router();
 router.get("/drivers", getDriver);
